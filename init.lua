@@ -75,7 +75,7 @@ do
       end
     end,
   })
-  vim.api.nvim_create_autocmd('BufWritePre', { desc = 'Format on save', callback = function() end })
+  -- vim.api.nvim_create_autocmd('BufWritePre', { desc = 'Format on save', callback = function() end })
   -- Diagnostic Config & Keymaps
   --  See `:help vim.diagnostic.Opts`
   vim.diagnostic.config {
@@ -590,7 +590,7 @@ do
       local enabled_filetypes = {
         lua = true,
         python = true,
-        -- rust = true,
+        rust = true,
         javascript = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
