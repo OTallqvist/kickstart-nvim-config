@@ -658,7 +658,7 @@ do
       documentation = { auto_show = true, auto_show_delay_ms = 300 },
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     snippets = { preset = 'luasnip' },
     -- See `:help blink-cmp-config-fuzzy` for more information
