@@ -629,7 +629,7 @@ do
   require('luasnip.loaders.from_vscode').lazy_load()
 
   -- [[ Autocomplete Engine ]]
-  vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' } }
+  vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' }, { src = gh 'saghen/blink.lib' } }
   require('blink.cmp').setup {
     keymap = {
       -- 'super-tab' for tab to accept
