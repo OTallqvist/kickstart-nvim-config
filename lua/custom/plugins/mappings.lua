@@ -68,3 +68,7 @@ vim.keymap.set('n', '<C-h>', ':TmuxNavigateLeft<CR>')
 vim.keymap.set('n', '<C-j>', ':TmuxNavigateDown<CR>')
 vim.keymap.set('n', '<C-k>', ':TmuxNavigateUp<CR>')
 vim.keymap.set('n', '<C-l>', ':TmuxNavigateRight<CR>')
+
+--subustitute on ö
+vim.keymap.set('n', 'ö', 'cl')
+vim.keymap.set('x', 'ö', 'c')
