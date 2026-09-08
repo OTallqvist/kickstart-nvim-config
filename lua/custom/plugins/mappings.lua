@@ -72,3 +72,6 @@ vim.keymap.set('n', '<C-l>', ':TmuxNavigateRight<CR>')
 --subustitute on ö
 vim.keymap.set('n', 'ö', 'cl')
 vim.keymap.set('x', 'ö', 'c')
+
+--<C-BS>
+vim.keymap.set('i', '<C-BS>', '<C-o>vb"_d')
