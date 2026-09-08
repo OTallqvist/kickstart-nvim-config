@@ -17,6 +17,8 @@ do
   o.relativenumber = true
   o.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
   o.showmode = false -- Don't show the mode, since it's already in the status line
+  o.tabstop = 4
+  o.shiftwidth = 4
 
   --  Schedule the setting after `UiEnter` because it can increase startup-time.
   --  Remove this option if you want your OS clipboard to remain independent.
