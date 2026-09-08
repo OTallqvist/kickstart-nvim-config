@@ -1,31 +1,32 @@
 local which_key = require 'which-key'
+local m = vim.keymap
 
 local function map_group(group, modes, prefix, buttons)
   which_key.add {
     { prefix, group = group }, --add the group to which-key
   }
   for _, button in pairs(buttons) do
-    vim.keymap.set(modes, prefix .. button.key, button.func, button.opts)
+    m.set(modes, prefix .. button.key, button.func, button.opts)
   end
 end
 
 --Basic command modficiations
-vim.keymap.set('n', 'Y', 'y$', { desc = 'Yank to eol' })
-vim.keymap.set('n', 'x', '"_x') -- delete without copy
-vim.keymap.set('n', 'X', '"_X') -- delete without copy
+m.set('n', 'Y', 'y$', { desc = 'Yank to eol' })
+m.set({ 'n', 'x' }, 'x', '"_x') -- delete without copy
+m.set({ 'n', 'x' }, 'X', '"_X') -- delete without copy
 
 -- Center screen when jumping
-vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' })
-vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous search result (centered)' })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half page down (centered)' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up (centered)' })
+m.set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' })
+m.set('n', 'N', 'Nzzzv', { desc = 'Previous search result (centered)' })
+m.set('n', '<C-d>', '<C-d>zz', { desc = 'Half page down (centered)' })
+m.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up (centered)' })
 
 -- Better indenting in visual mode
-vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
-vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and reselect' })
+m.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
+m.set('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
 -- Better J behavior
-vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines and keep cursor position' })
+m.set('n', 'J', 'mzJ`z', { desc = 'Join lines and keep cursor position' })
 --
 -- jump to
 map_group('Jump forward', { 'n', 'x' }, 'ä', {
@@ -64,14 +65,17 @@ map_group('Jump backward', { 'n', 'x' }, 'Ä', {
 })
 
 --tmux
-vim.keymap.set('n', '<C-h>', ':TmuxNavigateLeft<CR>')
-vim.keymap.set('n', '<C-j>', ':TmuxNavigateDown<CR>')
-vim.keymap.set('n', '<C-k>', ':TmuxNavigateUp<CR>')
-vim.keymap.set('n', '<C-l>', ':TmuxNavigateRight<CR>')
+m.set('n', '<C-h>', ':TmuxNavigateLeft<CR>')
+m.set('n', '<C-j>', ':TmuxNavigateDown<CR>')
+m.set('n', '<C-k>', ':TmuxNavigateUp<CR>')
+m.set('n', '<C-l>', ':TmuxNavigateRight<CR>')
 
 --subustitute on ö
-vim.keymap.set('n', 'ö', 'cl')
-vim.keymap.set('x', 'ö', 'c')
+m.set('n', 'ö', 'cl')
+m.set('x', 'ö', 'c')
 
 --<C-BS>
-vim.keymap.set('i', '<C-BS>', '<C-o>vb"_d')
+m.set('i', '<C-BS>', '<C-o>vb"_d')
+
+--:norm shortcut
+m.set({ 'n', 'x' }, '<C-n>', ':norm ')
