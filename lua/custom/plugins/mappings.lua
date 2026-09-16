@@ -79,3 +79,7 @@ m.set('i', '<C-BS>', '<C-o>vb"_d')
 
 --:norm shortcut
 m.set({ 'n', 'x' }, '<C-n>', ':norm ')
+vim.keymap.set('i', '<C-BS>', '<C-o>vb"_d')
+
+--redo
+vim.keymap.set('n', 'r', '<C-r>')
