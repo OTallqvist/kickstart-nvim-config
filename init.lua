@@ -738,7 +738,7 @@ end
 do
   --  Here are some example plugins that I've included in the Kickstart repository.
   --
-  -- require 'kickstart.plugins.debug'
+  require 'kickstart.plugins.debug'
   -- require 'kickstart.plugins.indent_line'
   -- require 'kickstart.plugins.lint'
   require 'kickstart.plugins.autopairs'
