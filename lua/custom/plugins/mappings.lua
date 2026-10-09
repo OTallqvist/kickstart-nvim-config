@@ -27,59 +27,26 @@ m.set('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
 -- Better J behavior
 m.set('n', 'J', 'mzJ`z', { desc = 'Join lines and keep cursor position' })
---
--- jump to
-map_group('Jump forward', { 'n', 'x' }, 'ä', {
-  {
-    key = 'd',
-    func = function() vim.diagnostic.jump { count = 1 } end,
-    opts = { desc = 'Next diagnostic' },
-  },
-  {
-    key = 'w',
-    func = function() vim.diagnostic.jump { severity = 2, count = 1 } end,
-    opts = { desc = 'Next warning' },
-  },
-  {
-    key = 'e',
-    func = function() vim.diagnostic.jump { severity = 1, count = 1 } end,
-    opts = { desc = 'Next error' },
-  },
-})
-map_group('Jump backward', { 'n', 'x' }, 'Ä', {
-  {
-    key = 'd',
-    func = function() vim.diagnostic.jump { count = -1 } end,
-    opts = { desc = 'Next diagnostic' },
-  },
-  {
-    key = 'w',
-    func = function() vim.diagnostic.jump { severity = 2, count = -1 } end,
-    opts = { desc = 'Next warning' },
-  },
-  {
-    key = 'e',
-    func = function() vim.diagnostic.jump { severity = 1, count = -1 } end,
-    opts = { desc = 'Next error' },
-  },
-})
 
---tmux
-m.set('n', '<C-h>', ':TmuxNavigateLeft<CR>')
-m.set('n', '<C-j>', ':TmuxNavigateDown<CR>')
-m.set('n', '<C-k>', ':TmuxNavigateUp<CR>')
-m.set('n', '<C-l>', ':TmuxNavigateRight<CR>')
+m.set({ 'n', 'x' }, ']e', function() vim.diagnostic.jump { severity = 1, count = vim.v.count1 } end, { remap = true })
+m.set({ 'n', 'x' }, '[e', function() vim.diagnostic.jump { severity = 1, count = -vim.v.count1 } end, { remap = true })
+m.set({ 'n', 'x' }, ']w', function() vim.diagnostic.jump { severity = 2, count = vim.v.count1 } end, { remap = true })
+m.set({ 'n', 'x' }, '[w', function() vim.diagnostic.jump { severity = 2, count = -vim.v.count1 } end, { remap = true })
 
---subustitute on ö
-m.set('n', 'ö', 'cl')
-m.set('x', 'ö', 'c')
+m.set({ 'n', 'x' }, 'ä', ']', { remap = true })
+m.set({ 'n', 'x' }, 'Ä', '[', { remap = true })
 
 --<C-BS>
 m.set('i', '<C-BS>', '<C-o>vb"_d')
 
 --:norm shortcut
-m.set({ 'n', 'x' }, '<C-n>', ':norm ')
-vim.keymap.set('i', '<C-BS>', '<C-o>vb"_d')
+m.set({ 'n', 'x' }, '<C-b>', ':norm ')
+m.set('i', '<C-BS>', '<C-o>vb"_d')
 
 --redo
-vim.keymap.set('n', 'r', '<C-r>')
+m.set('n', 'r', '<C-r>')
+
+m.set({ 'n', 'x' }, 'j', 'h')
+m.set({ 'n', 'x' }, 'k', 'j')
+m.set({ 'n', 'x' }, 'l', 'k')
+m.set({ 'n', 'x' }, 'ö', 'l')
