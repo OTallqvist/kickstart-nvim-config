@@ -9,3 +9,5 @@ vim.keymap.set(
   function() vim.cmd.RustLsp { 'hover', 'actions' } end,
   { silent = true, buffer = bufnr }
 )
+vim.keymap.set('x', '<leader>d', '<esc>`>a)<esc>`<idbg!(<esc>B')
+vim.keymap.set('n', '<leader>D', '/dbg!(<CR>dt(mz%x`zx')
