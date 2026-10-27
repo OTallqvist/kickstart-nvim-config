@@ -50,3 +50,8 @@ m.set({ 'n', 'x' }, 'j', 'h')
 m.set({ 'n', 'x' }, 'k', 'j')
 m.set({ 'n', 'x' }, 'l', 'k')
 m.set({ 'n', 'x' }, 'ö', 'l')
+
+m.set('n', '<C-j>', ':TmuxNavigateLeft<CR>')
+m.set('n', '<C-k>', ':TmuxNavigateUp<CR>')
+m.set('n', '<C-l>', ':TmuxNavigateDown<CR>')
+m.set('n', '<C-ö>', ':TmuxNavigateRight<CR>')
